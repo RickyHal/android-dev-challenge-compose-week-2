@@ -16,38 +16,44 @@
 package com.example.androiddevchallenge
 
 import android.app.Service
-import android.content.Intent
-import android.content.pm.ActivityInfo
-import android.content.res.Resources
 import android.os.Bundle
-import android.os.VibrationEffect
 import android.os.Vibrator
-import android.view.Window
 import android.view.WindowManager
-import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.animation.*
-import androidx.compose.animation.core.*
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.Crossfade
+import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.animation.animateColorAsState
+import androidx.compose.animation.core.Spring
+import androidx.compose.animation.core.spring
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.slideInVertically
+import androidx.compose.animation.slideOutVertically
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
-import androidx.compose.material.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
+import androidx.compose.material.Button
+import androidx.compose.material.Scaffold
+import androidx.compose.material.Text
+import androidx.compose.material.TextField
+import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.State
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.core.graphics.translationMatrix
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.example.androiddevchallenge.ui.theme.MyTheme
@@ -117,11 +123,15 @@ fun PageControl(viewModel: MainViewModel, onStart: () -> Unit) {
 
 @Composable
 fun Main(viewModel: MainViewModel, onStart: () -> Unit) {
-    Scaffold(topBar = {
-        TopAppBar(title = {
-            Text(text = "Countdown Timer")
-        })
-    }) {
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                title = {
+                    Text(text = "Countdown Timer")
+                }
+            )
+        }
+    ) {
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -153,7 +163,8 @@ fun Main(viewModel: MainViewModel, onStart: () -> Unit) {
                     onValueChange = { minutes -> viewModel.onMinuteChange(minutes) },
                     label = {
                         Text(text = "minute")
-                    })
+                    }
+                )
                 TextField(
                     value = second,
                     modifier = Modifier
@@ -163,7 +174,8 @@ fun Main(viewModel: MainViewModel, onStart: () -> Unit) {
                     onValueChange = { seconds -> viewModel.onSecondChange(seconds) },
                     label = {
                         Text(text = "second")
-                    })
+                    }
+                )
             }
             Button(onClick = onStart) {
                 Text(text = "Start")
@@ -226,7 +238,8 @@ fun AnimatedVisibilityBlock(
     AnimatedVisibility(
         visible = showCountdownTime,
         enter = slideInVertically(
-            initialOffsetY = { it / 2 + offset }, animationSpec = spring(
+            initialOffsetY = { it / 2 + offset },
+            animationSpec = spring(
                 dampingRatio = Spring.DampingRatioLowBouncy,
                 stiffness = Spring.StiffnessLow
             )
