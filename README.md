@@ -12,7 +12,7 @@ A countdown time app developed by Jetpack Compose,used Compose animation and sta
 ## :bulb: Motivation and Context
 <!--- Optionally point readers to interesting parts of your submission. -->
 <!--- What are you especially proud of? -->
-There is animation when the page switches, and listening for state changes using compose state. Besides,animateColorAsState is used to change the color of countdown.
+There is animation when the page switches, and listening for state changes using compose state. Besides,animateColorAsState is used to change the color of countdown text.
 
 ## :camera_flash: Screenshots
 <!-- You can add more screenshots here if you like -->
