@@ -7,13 +7,12 @@
 
 ## :scroll: Description
 <!--- Describe your app in one or two sentences -->
-A cat adopt app
+A countdown time app developed by Jetpack Compose,Used Compose animation and state.
 
 ## :bulb: Motivation and Context
 <!--- Optionally point readers to interesting parts of your submission. -->
 <!--- What are you especially proud of? -->
-There is a list of cats
-Cats are beautiful
+There is animation when the page switches,and listening for state changes using compose state,besides,animatecolorastate is used to change the color of countdown.
 
 ## :camera_flash: Screenshots
 <!-- You can add more screenshots here if you like -->
