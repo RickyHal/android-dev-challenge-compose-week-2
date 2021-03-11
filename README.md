@@ -7,7 +7,7 @@
 
 ## :scroll: Description
 <!--- Describe your app in one or two sentences -->
-A countdown time app developed by Jetpack Compose,Used Compose animation and state.
+A countdown time app developed by Jetpack Compose,used Compose animation and state to realize the countdown 
 
 ## :bulb: Motivation and Context
 <!--- Optionally point readers to interesting parts of your submission. -->
